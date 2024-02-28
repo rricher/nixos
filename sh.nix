@@ -1,7 +1,7 @@
 { config, pkgs, ... }:
 let
   myAliases = {
-    ll = "ls - l";
+    ll = "ls -l";
     ".." = "cd ..";
   };
 in

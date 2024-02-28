@@ -10,8 +10,15 @@
   outputs = { self, nixpkgs, home-manager, ... }:
     let
       lib = nixpkgs.lib;
-      system = "x86_64-linux"; 
-      pkgs = nixpkgs.legacyPackages.${system};
+      system = "x86_64-linux";
+
+      # configure pkgs
+      pkgs = import nixpkgs {
+        system = system;
+        config = { allowUnfree = true;
+                 allowUnfreePredicate = (_: true); };
+      };
+
     in {
       nixosConfigurations = {
         ryanpc = lib.nixosSystem {
