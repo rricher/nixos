@@ -4,6 +4,7 @@
   
   imports = [
     # ./sh.nix
+    ../../user/app/git.nix
   ];
 
   # Home Manager needs a bit of information about you and the paths it should
@@ -27,13 +28,6 @@
     git
     firefox
   ];
-  
-  programs.git.enable = true;
-  programs.git.userName = "rricher";
-  programs.git.userEmail = "ryanricher@gmail.com";
-  programs.git.extraConfig = {
-    init.defaultBranch = "main";
-  };
 
   programs.vscode.enable = true;
 

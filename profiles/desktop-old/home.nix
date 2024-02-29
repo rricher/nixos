@@ -9,7 +9,7 @@
   imports = [
     ../../user/shell/sh.nix
     ../../user/app/git.nix
-    ../../user/app/1password.nix
+    # ../../user/app/1password.nix
   ];
 
   home.stateVersion = "23.11"; # Please read the comment before changing.
