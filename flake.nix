@@ -23,9 +23,9 @@
 
     in {
       nixosConfigurations = {
-        ryanpc = lib.nixosSystem {
+        desktop = lib.nixosSystem {
           inherit system;
-          modules = [ ./profiles/pc/configuration.nix ];
+          modules = [ ./profiles/desktop/configuration.nix ];
         };
         laptop = lib.nixosSystem {
           inherit system;
@@ -33,9 +33,9 @@
         };
       };
       homeConfigurations = {
-        "ryan@ryanpc" = home-manager.lib.homeManagerConfiguration {
+        "ryan@desktop" = home-manager.lib.homeManagerConfiguration {
           inherit pkgs;
-          modules = [ ./profiles/pc/home.nix ];
+          modules = [ ./profiles/desktop/home.nix ];
         };
         "ryan@laptop" = home-manager.lib.homeManagerConfiguration {
           inherit pkgs;
