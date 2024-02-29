@@ -83,11 +83,7 @@
     isNormalUser = true;
     description = "Ryan";
     extraGroups = [ "networkmanager" "wheel" ];
-    packages = with pkgs; [
-      firefox
-      vscode
-    #  thunderbird
-    ];
+    packages = with pkgs; [];
   };
  
   # Fix google-chrome dbus error (hopefully)

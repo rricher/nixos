@@ -25,6 +25,7 @@
   home.packages = with pkgs; [
     vscode
     git
+    firefox
   ];
   
   programs.git.enable = true;
