@@ -85,10 +85,14 @@
     extraGroups = [ "networkmanager" "wheel" ];
     packages = with pkgs; [
       firefox
+      google-chrome
     #  thunderbird
     ];
   };
-
+ 
+  # Fix google-chrome dbus error (hopefully)
+  programs.dconf.enable = true; 
+ 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
