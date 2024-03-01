@@ -1,11 +1,13 @@
-{ config, pkgs, ... }:
+{ config, pkgs, userSettings, ... }:
 
 {
   
   imports = [
     # ./sh.nix
-    ../../user/app/git.nix
     ../../user/shell/sh.nix
+    ../../user/app/git.nix
+    ../../user/app/vim.nix
+    ../../user/app/vscode/vscode.nix
   ];
 
   # Home Manager needs a bit of information about you and the paths it should
@@ -25,21 +27,11 @@
   # The home.packages option allows you to install Nix packages into your
   # environment.
   home.packages = with pkgs; [
-    vscode
     git
     firefox
     zsh
     alacritty
   ];
-  
-  programs.git.enable = true;
-  programs.git.userName = "rricher";
-  programs.git.userEmail = "ryanricher@gmail.com";
-  programs.git.extraConfig = {
-    init.defaultBranch = "main";
-  };
-
-  programs.vscode.enable = true;
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
   # plain files is through 'home.file'.
@@ -72,7 +64,9 @@
   #  /etc/profiles/per-user/ryan/etc/profile.d/hm-session-vars.sh
   #
   home.sessionVariables = {
-    # EDITOR = "emacs";
+    EDITOR = userSettings.editor;
+    TERM = userSettings.term;
+    BROWSER = userSettings.browser;
   };
   
   # Let Home Manager install and manage itself.
