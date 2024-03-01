@@ -1,21 +1,12 @@
-{ lib, userSettings, storageDriver ? null, ... }:
-assert lib.asserts.assertOneOf "storageDriver" storageDriver [
-  null
-  "aufs"
-  "btrfs"
-  "devicemapper"
-  "overlay"
-  "overlay2"
-  "zfs"
-];
-
+{ userSettings, ... }:
 {
   virtualisation.docker = {
     enable = true;
-    enableOnBoot = false;
     enableNvidia = true;
-    storageDriver = storageDriver;
-    autoPrune.enable = true;
+    rootless = {
+      enable = true;
+      setSocketVariable = true;
+    };
   };
   users.users.${userSettings.username}.extraGroups = [ "docker" ];
 }
