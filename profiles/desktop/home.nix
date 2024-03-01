@@ -4,6 +4,7 @@
   
   imports = [
     # ./sh.nix
+    ../../user/app/git.nix
   ];
 
   # Home Manager needs a bit of information about you and the paths it should
@@ -25,6 +26,7 @@
   home.packages = with pkgs; [
     vscode
     git
+    firefox
   ];
   
   programs.git.enable = true;

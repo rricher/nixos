@@ -8,6 +8,7 @@
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
+      ../../system/app/onepassword.nix
     ];
 
   # Bootloader.
@@ -83,11 +84,7 @@
     isNormalUser = true;
     description = "Ryan";
     extraGroups = [ "networkmanager" "wheel" ];
-    packages = with pkgs; [
-      firefox
-      vscode
-    #  thunderbird
-    ];
+    packages = with pkgs; [];
   };
  
   # Fix google-chrome dbus error (hopefully)
@@ -104,7 +101,8 @@
   environment.systemPackages = with pkgs; [
     vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
     wget
-    git
+    _1password
+    _1password-gui
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
