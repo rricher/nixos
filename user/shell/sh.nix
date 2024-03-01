@@ -1,12 +1,11 @@
 { config, pkgs, ... }:
 let
   myAliases = {
-    ls = "eza --icons -l -T -L=1";
-    ll = "ls -l";
+    ls = "eza";
+    ll = "ls -la";
     cat = "bat";
     htop = "btm";
     fd = "fd -Lu";
-    neofetch = "disfetch";
   };
 in
 {
@@ -25,7 +24,7 @@ in
   };
 
    home.packages = with pkgs; [
-    disfetch lolcat onefetch
+    neofetch lolcat onefetch
     gnugrep gnused
     bat eza bottom fd bc
   ];
