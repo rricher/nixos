@@ -9,6 +9,11 @@
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
       ../../system/app/onepassword.nix
+      ../../system/hardware/systemd.nix
+      ../../system/hardware/time.nix
+      ../../system/hardware/opengl.nix
+      ../../system/hardware/nvidia.nix
+      ../../system/hardware/printing.nix
     ];
 
   # Bootloader.
@@ -56,10 +61,10 @@
     xkbVariant = "";
   };
 
-  # Enable CUPS to print documents.
-  services.printing.enable = true;
+  # # Enable CUPS to print documents.
+  # services.printing.enable = true;
 
-  # Enable sound with pipewire.
+  # # Enable sound with pipewire.
   sound.enable = true;
   hardware.pulseaudio.enable = false;
   security.rtkit.enable = true;
@@ -101,6 +106,7 @@
   environment.systemPackages = with pkgs; [
     vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
     wget
+    zsh
     _1password
     _1password-gui
   ];
