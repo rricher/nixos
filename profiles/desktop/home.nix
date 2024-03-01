@@ -5,6 +5,7 @@
   imports = [
     # ./sh.nix
     ../../user/app/git.nix
+    ../../user/shell/sh.nix
   ];
 
   # Home Manager needs a bit of information about you and the paths it should
@@ -27,6 +28,8 @@
     vscode
     git
     firefox
+    zsh
+    alacritty
   ];
   
   programs.git.enable = true;
