@@ -12,7 +12,7 @@
       ../../system/hardware/systemd.nix
       ../../system/hardware/time.nix
       ../../system/hardware/opengl.nix
-      ../../system/hardware/nvidia.nix
+      # ../../system/hardware/nvidia.nix
       ../../system/hardware/printing.nix
       ../../system/app/steam.nix
       (./. + "../../../system/wm"+("/"+userSettings.wm)+".nix")
@@ -22,6 +22,7 @@
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
+  boot.supportedFilesystems = [ "ntfs" ];
 
   networking.hostName = "desktop"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.

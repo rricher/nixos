@@ -4,6 +4,7 @@
   imports = [
     ./pipewire.nix
     ./dbus.nix
+    ../system/hardware/nvidia.nix
   ];
   # Enable the X11 windowing system.
   services.xserver.enable = true;
