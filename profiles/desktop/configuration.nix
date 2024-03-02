@@ -14,6 +14,7 @@
       ../../system/hardware/opengl.nix
       ../../system/hardware/nvidia.nix
       ../../system/hardware/printing.nix
+      ../../system/app/steam.nix
       (./. + "../../../system/wm"+("/"+userSettings.wm)+".nix")
       ( import ../../system/app/docker.nix {inherit userSettings ;} )
     ];
@@ -69,6 +70,8 @@
     zsh
     _1password
     _1password-gui
+    gparted
+    exfat
   ];
 
   # I use zsh btw
